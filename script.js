@@ -35,5 +35,24 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-console.log(playRound(getHumanChoice(), getComputerChoice()));
-console.log(playRound(getHumanChoice(), getComputerChoice()));
+function playGame() {
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+}
+
+function getResults(result) {
+    if(computerScore < humanScore) {
+        result = "You won!";
+    } else if(computerScore > humanScore) {
+        result = "You lose!";
+    } else {
+        result = "Draw!";
+    }
+    return result;
+}
+
+playGame();
+console.log(getResults());
