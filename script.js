@@ -19,12 +19,28 @@ function playRound(humanChoice, computerChoice) {
         humanChoice === "scissors" && computerChoice === "rock"
     ) {
         computerScore++;
-        console.log("You lose!");
+        console.log(`Your choice: ${humanChoice}, computer choice: ${computerChoice}`);
+        console.log(`Your points: ${humanScore}, computer points: ${computerScore}`);
+        return "You lose";
     } else if (humanChoice === "rock" && computerChoice === "scissors" ||
         humanChoice === "paper" && computerChoice === "rock" ||
         humanChoice === "scissors" && computerChoice === "paper"
     ) {
         humanScore++;
-        console.log("You win!");
+        console.log(`Your choice: ${humanChoice}, computer choice: ${computerChoice}`);
+        console.log(`Your points: ${humanScore}, computer points: ${computerScore}`);
+        return "You win";
+    } else {
+        return "Draw";
     }
 }
+
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
+
+function playGame() {
+    playRound(humanSelection, computerSelection);
+    
+}
+
+console.log(playGame());
