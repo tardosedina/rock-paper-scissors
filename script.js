@@ -56,3 +56,4 @@ function getResults(result) {
 
 playGame();
 console.log(getResults());
+console.log("Hit F5 for playing another round!");
