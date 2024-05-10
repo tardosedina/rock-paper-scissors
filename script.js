@@ -35,12 +35,5 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
-
-function playGame() {
-    playRound(humanSelection, computerSelection);
-    
-}
-
-console.log(playGame());
+console.log(playRound(getHumanChoice(), getComputerChoice()));
+console.log(playRound(getHumanChoice(), getComputerChoice()));
