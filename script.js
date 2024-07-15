@@ -13,10 +13,13 @@ function btnDisable() {
 
 function showRules() {
     let x = document.getElementById("rules");
+    let rbut = document.getElementById("rulebtn");
     if(x.style.display === "none") {
         x.style.display = "block";
+        rbut.innerHTML = "Hide Rules";
     } else {
         x.style.display = "none";
+        rbut.innerHTML = "Show Rules";
     }
 }
 
