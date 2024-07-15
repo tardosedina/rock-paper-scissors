@@ -3,9 +3,13 @@ let humanScore = 0;
 let computerScore = 0;
 const buttons = document.querySelectorAll("button");
 let resultdiv = document.querySelector("#result");
+let winnerdiv = document.querySelector("#winner");
 
-/* Event listeners */
-
+function btnDisable() {
+    buttons.forEach(button => {
+        button.disabled = true;
+    })
+}
 
 
 function getComputerChoice() {
@@ -29,34 +33,16 @@ function playRound(playerSelect) {
      ) {
         computerScore++;
         result = `You lose! Computer choice: ${computerChoice}; your points: ${humanScore}, computer points: ${computerScore}`;
+    } else if(computerChoice === playerSelect) {
+        result = `It's a draw! Your points: ${humanScore}, computer points: ${computerScore}`;
     }
-    resultdiv.innerHTML = result;
+    resultdiv.innerHTML = result;  
     return
 }
 
+
 playRound();
 
-/*
-function playGame() {
-    playRound(getHumanChoice(), getComputerChoice());
-    playRound(getHumanChoice(), getComputerChoice());
-    playRound(getHumanChoice(), getComputerChoice());
-    playRound(getHumanChoice(), getComputerChoice());
-    playRound(getHumanChoice(), getComputerChoice());
-} */
-/*
-function getResults(result) {
-    if(computerScore < humanScore) {
-        winner.innerHTML = "You won!";
-    } else if(computerScore > humanScore) {
-        winner.innerHTML = "You lose!";
-    } else {
-        winner.innerHTML = "Draw!";
-    }
-    return result;
-} */
-
-/* playGame(); */
 buttons.forEach(button => {
     button.addEventListener("click", function(){playRound(button.value)});
 })
