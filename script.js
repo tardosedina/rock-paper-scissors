@@ -36,7 +36,13 @@ function playRound(playerSelect) {
     } else if(computerChoice === playerSelect) {
         result = `It's a draw! Your points: ${humanScore}, computer points: ${computerScore}`;
     }
-    resultdiv.innerHTML = result;  
+    if(humanScore == 5 || computerScore == 5) {
+        winner = " Game over!";
+        winnerdiv.innerHTML = winner;
+        btnDisable();
+    } 
+    resultdiv.innerHTML = result;
+    
     return
 }
 
