@@ -29,11 +29,13 @@ function playRound(humanChoice, computerChoice) {
         humanScore++;
         console.log(`Your choice: ${humanChoice}, computer choice: ${computerChoice}`);
         console.log(`Your points: ${humanScore}, computer points: ${computerScore}`);
+        
         return "You win";
     } else {
         return "Draw";
     }
 }
+
 
 function playGame() {
     playRound(getHumanChoice(), getComputerChoice());
