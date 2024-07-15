@@ -1,7 +1,7 @@
 
 let humanScore = 0;
 let computerScore = 0;
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll("input");
 let resultdiv = document.querySelector("#result");
 let winnerdiv = document.querySelector("#winner");
 
@@ -21,15 +21,15 @@ function getComputerChoice() {
 
 function playRound(playerSelect) {
     let computerChoice = getComputerChoice();
-    if(playerSelect == "rock" && computerChoice == "scissors" ||
-        playerSelect == "scissors" && computerChoice == "paper" ||
-        playerSelect == "paper" && computerChoice == "rock"
+    if(playerSelect == "Rock" && computerChoice == "scissors" ||
+        playerSelect == "Scissors" && computerChoice == "paper" ||
+        playerSelect == "Paper" && computerChoice == "rock"
     ) {
         humanScore++;
         result = `You win! Computer choice: ${computerChoice}; your points: ${humanScore}, computer points: ${computerScore}`;
-    } else if (playerSelect == "rock" && computerChoice == "paper" ||
-                playerSelect == "paper" && computerChoice == "scissors" ||
-                playerSelect == "scissors" && computerChoice == "rock"
+    } else if (playerSelect == "Rock" && computerChoice == "paper" ||
+                playerSelect == "Paper" && computerChoice == "scissors" ||
+                playerSelect == "Scissors" && computerChoice == "rock"
      ) {
         computerScore++;
         result = `You lose! Computer choice: ${computerChoice}; your points: ${humanScore}, computer points: ${computerScore}`;
