@@ -11,6 +11,15 @@ function btnDisable() {
     })
 }
 
+function showRules() {
+    let x = document.getElementById("rules");
+    if(x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
 
 function getComputerChoice() {
     const compOpts = ["rock", "paper", "scissors"];
