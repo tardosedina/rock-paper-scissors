@@ -3,6 +3,11 @@ const btn1 = document.querySelector("#btn1");
 const btn2 = document.querySelector("#btn2");
 const btn3 = document.querySelector("#btn3");
 
+/* Event listeners */
+btn1.addEventListener("click", function(){playRound("rock");});
+btn2.addEventListener("click", function(){playRound("paper");});
+btn3.addEventListener("click", function(){playRound("scissors");});
+
 function getComputerChoice() {
     const compOpts = ["rock", "paper", "scissors"];
     let compChoice = compOpts[Math.floor(Math.random() * compOpts.length)];
