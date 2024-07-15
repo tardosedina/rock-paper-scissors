@@ -7,8 +7,12 @@
     <title>Rock-paper-scissors</title>
 </head>
 <body>
-    <h1>Rock-paper-scissors</h1>
-    <p>Select an option:</p>
+    <div id="lang">
+        🌐 <button id="eng" onclick="changeLanguage('eng')">english</button>
+           <button id="hun" onclick="changeLanguage('hun')">magyar</button>
+    </div>
+    <h1 id="title">Rock-paper-scissors</h1>
+    <p id="opt">Select an option:</p>
     <input type="button" id="btn1" value="Rock">
     <input type="button" id="btn2" value="Paper">
     <input type="button" id="btn3" value="Scissors">
@@ -26,5 +30,6 @@
             &#9986;&#65039; Scissors beats &#128478; paper</p>
     </div>
     <script src="script.js"></script>
+    <script src="langchange.js"></script>
 </body>
 </html>
