@@ -1,12 +1,12 @@
-/* Consts for buttons */
-const btn1 = document.querySelector("#btn1");
-const btn2 = document.querySelector("#btn2");
-const btn3 = document.querySelector("#btn3");
+
+let humanScore = 0;
+let computerScore = 0;
+const buttons = document.querySelectorAll("button");
+let resultdiv = document.querySelector("#result");
 
 /* Event listeners */
-btn1.addEventListener("click", function(){playRound("rock");});
-btn2.addEventListener("click", function(){playRound("paper");});
-btn3.addEventListener("click", function(){playRound("scissors");});
+
+
 
 function getComputerChoice() {
     const compOpts = ["rock", "paper", "scissors"];
@@ -14,58 +14,49 @@ function getComputerChoice() {
     return compChoice;
 }
 
-function getHumanChoice() {
-    let humChoiceOrig = prompt("Enter your choice:");
-    let humChoice = humChoiceOrig.toLowerCase();
-    return humChoice;
-}
 
-let humanScore = 0;
-let computerScore = 0;
-
-function playRound(humanChoice, computerChoice) {
-    if(humanChoice === "rock" && computerChoice === "paper" ||
-        humanChoice === "paper" && computerChoice === "scissors" ||
-        humanChoice === "scissors" && computerChoice === "rock"
-    ) {
-        computerScore++;
-        console.log(`Your choice: ${humanChoice}, computer choice: ${computerChoice}`);
-        console.log(`Your points: ${humanScore}, computer points: ${computerScore}`);
-        return "You lose";
-    } else if (humanChoice === "rock" && computerChoice === "scissors" ||
-        humanChoice === "paper" && computerChoice === "rock" ||
-        humanChoice === "scissors" && computerChoice === "paper"
+function playRound(playerSelect) {
+    let computerChoice = getComputerChoice();
+    if(playerSelect == "rock" && computerChoice == "scissors" ||
+        playerSelect == "scissors" && computerChoice == "paper" ||
+        playerSelect == "paper" && computerChoice == "rock"
     ) {
         humanScore++;
-        console.log(`Your choice: ${humanChoice}, computer choice: ${computerChoice}`);
-        console.log(`Your points: ${humanScore}, computer points: ${computerScore}`);
-        
-        return "You win";
-    } else {
-        return "Draw";
+        result = `You win! Computer choice: ${computerChoice}; your points: ${humanScore}, computer points: ${computerScore}`;
+    } else if (playerSelect == "rock" && computerChoice == "paper" ||
+                playerSelect == "paper" && computerChoice == "scissors" ||
+                playerSelect == "scissors" && computerChoice == "rock"
+     ) {
+        computerScore++;
+        result = `You lose! Computer choice: ${computerChoice}; your points: ${humanScore}, computer points: ${computerScore}`;
     }
+    resultdiv.innerHTML = result;
+    return
 }
 
+playRound();
 
+/*
 function playGame() {
     playRound(getHumanChoice(), getComputerChoice());
     playRound(getHumanChoice(), getComputerChoice());
     playRound(getHumanChoice(), getComputerChoice());
     playRound(getHumanChoice(), getComputerChoice());
     playRound(getHumanChoice(), getComputerChoice());
-}
-
+} */
+/*
 function getResults(result) {
     if(computerScore < humanScore) {
-        result = "You won!";
+        winner.innerHTML = "You won!";
     } else if(computerScore > humanScore) {
-        result = "You lose!";
+        winner.innerHTML = "You lose!";
     } else {
-        result = "Draw!";
+        winner.innerHTML = "Draw!";
     }
     return result;
-}
+} */
 
-playGame();
-console.log(getResults());
-console.log("Hit F5 for playing another round!");
+/* playGame(); */
+buttons.forEach(button => {
+    button.addEventListener("click", function(){playRound(button.value)});
+})
