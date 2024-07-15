@@ -1,3 +1,8 @@
+/* Consts for buttons */
+const btn1 = document.querySelector("#btn1");
+const btn2 = document.querySelector("#btn2");
+const btn3 = document.querySelector("#btn3");
+
 function getComputerChoice() {
     const compOpts = ["rock", "paper", "scissors"];
     let compChoice = compOpts[Math.floor(Math.random() * compOpts.length)];
